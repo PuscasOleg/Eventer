@@ -1,18 +1,27 @@
 package com.example.eventer.Fragments.Add
 
+import android.accounts.AuthenticatorDescription
+import java.util.*
+
 class RegisterEvent {
 
-    private var theme: String = ""
-    private var description: String = ""
-    private var phone: String? = null
+    var theme: String = ""
+    var description: String = ""
+    var phone: String? = null
+    var date:String? = null
 
 
     constructor()
 
-    constructor(theme: String = "", description: String = "", phone: String? = null) {
+    constructor(theme: String = "", date: String, phone: String?) {
         this.theme = theme
-        this.description = description
         this.phone = phone
+        this.date = date
+    }
+
+
+    constructor(description: String=""){
+        this.description=description
     }
 
 
