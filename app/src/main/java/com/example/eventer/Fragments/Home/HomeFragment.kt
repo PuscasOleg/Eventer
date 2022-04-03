@@ -1,25 +1,26 @@
 package com.example.eventer.Fragments.Home
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.example.eventer.Fragments.Add.EventAdapter
 import com.example.eventer.Fragments.Add.RegisterEvent
-
 import com.example.eventer.R
+import com.firebase.ui.database.FirebaseRecyclerOptions
+import com.google.firebase.database.FirebaseDatabase
+import kotlinx.coroutines.awaitAll
 
 
 class HomeFragment : Fragment() {
 
 
     lateinit var adapter: EventAdapter
-    lateinit var recyclerView: RecyclerView
 
-    lateinit var resView:RecyclerView
+
+    lateinit var resView: RecyclerView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,16 +32,35 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        resView= view.findViewById(R.id.recycleView)
+        resView = view.findViewById(R.id.recycleView)
 
-        initial()
+        //initial()
 
+        val options: FirebaseRecyclerOptions<RegisterEvent> =
+            FirebaseRecyclerOptions.Builder<RegisterEvent>()
+                .setQuery(
+                    FirebaseDatabase.getInstance().reference.child("Events"),
+                    RegisterEvent::class.java
+                )
+                .build()
 
-
+        adapter = EventAdapter(options)
+        resView.adapter=adapter
 
     }
 
-    private fun initial() {
+
+    override fun onStart() {
+        super.onStart()
+        adapter.startListening()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        adapter.stopListening()
+    }
+
+    /*private fun initial() {
 
 
 
@@ -74,9 +94,7 @@ class HomeFragment : Fragment() {
 
         return eventList
 
-    }
-
-
+    }*/
 
 
 }

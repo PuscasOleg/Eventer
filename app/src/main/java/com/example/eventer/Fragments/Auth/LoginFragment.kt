@@ -1,5 +1,6 @@
 package com.example.eventer.Fragments.Auth
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,12 +10,16 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.fragment.app.FragmentActivity
 import com.example.eventer.Fragments.Add.AddFragment
+import com.example.eventer.Fragments.Profile.AccountFragment
+import com.example.eventer.MainActivity
 import com.example.eventer.R
 import com.google.firebase.auth.FirebaseAuth
 
 
 class LoginFragment : Fragment() {
+
 
 
     private lateinit var password: EditText
@@ -45,12 +50,14 @@ class LoginFragment : Fragment() {
 
         forgotPassword.setOnClickListener { openResetPasswordFragment() }
 
-        sigUpTextView.setOnClickListener { openSignUpFragment() }
+        sigUpTextView.setOnClickListener { replaceFragment(RegisterFragment()) }
 
         logInBtn.setOnClickListener { singInUser() }
 
 
     }
+
+
 
     private fun openSignUpFragment() {
         replaceFragment(RegisterFragment())
@@ -83,7 +90,7 @@ class LoginFragment : Fragment() {
 
             }
             else -> {
-                registerUser(Email, Password)
+                logInUser(Email, Password)
             }
         }
 
@@ -92,24 +99,21 @@ class LoginFragment : Fragment() {
 
 
     private fun replaceFragment(fragment: Fragment) {
+
         parentFragmentManager.beginTransaction().addToBackStack(null)
             .replace(R.id.fragmentContainer, fragment).commit()
 
     }
 
 
-    private fun registerUser(Email: String, Password: String) {
+    private fun logInUser(Email: String, Password: String) {
         auth.signInWithEmailAndPassword(Email, Password).addOnCompleteListener {
             if (it.isSuccessful) {
-
-
                 //connect to  GSON
-
-                auth.currentUser
+                auth.currentUser?.uid
                 Toast.makeText(activity, "Welcome", Toast.LENGTH_LONG).show()
-                fragmentManager?.beginTransaction()?.replace(R.id.fragmentContainer, AddFragment())
-                    ?.addToBackStack(null)?.commit()
 
+                gotoMainActivity()
             } else {
                 Toast.makeText(activity, "Failure", Toast.LENGTH_LONG).show()
             }
@@ -118,5 +122,10 @@ class LoginFragment : Fragment() {
 
     }
 
+    private fun gotoMainActivity() {
+        startActivity(Intent(this.context, MainActivity::class.java))
+
+
+    }
 
 }

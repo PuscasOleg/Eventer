@@ -23,6 +23,8 @@ class RegisterFragment : Fragment() {
     private lateinit var singUpBtn: Button
     private val auth: FirebaseAuth = FirebaseAuth.getInstance()
 
+    private lateinit var  mAuthStateListener:FirebaseAuth.AuthStateListener
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -60,6 +62,9 @@ class RegisterFragment : Fragment() {
             .replace(R.id.fragmentContainer, LoginFragment()).commit()
 
     }
+
+
+
 
     private fun createUser() {
 
@@ -118,15 +123,14 @@ class RegisterFragment : Fragment() {
             if (it.isSuccessful) {
 
                 val user = RegisterUser(UserName, Email)
+
                 FirebaseDatabase.getInstance().getReference("Users")
                     .child(FirebaseAuth.getInstance().currentUser!!.uid).setValue(user)
                     .addOnCompleteListener {
                         if (it.isSuccessful) {
                             auth.currentUser
                             Toast.makeText(activity, "Created", Toast.LENGTH_LONG).show()
-                            fragmentManager?.beginTransaction()
-                                ?.replace(R.id.fragmentContainer, LoginFragment())
-                                ?.addToBackStack(null)?.commit()
+                           replaceFragment(LoginFragment())
 
                         } else {
                             Toast.makeText(activity, "Failure", Toast.LENGTH_LONG).show()
@@ -139,8 +143,31 @@ class RegisterFragment : Fragment() {
             }
 
 
+
+
+
+
+
         }
 
+
+    }
+
+    /*override fun onStart() {
+        super.onStart()
+
+        auth.addAuthStateListener(mAuthStateListener)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        auth.removeAuthStateListener { mAuthStateListener }
+    }*/
+
+    private fun replaceFragment(fragment: Fragment) {
+        parentFragmentManager.beginTransaction()
+            .replace(R.id.fragmentContainer, fragment)
+            .commit()
     }
 
 

@@ -3,19 +3,20 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-
+        <entry key="..\:/Android Project/app/src/main/res/drawable/bottom_item_selector.xml" value="0.123" />
         <entry key="..\:/Android Project/app/src/main/res/drawable/input_bg.xml" value="0.258" />
         <entry key="..\:/Android Project/app/src/main/res/drawable/item_event_bg.xml" value="0.258" />
         <entry key="..\:/Android Project/app/src/main/res/drawable/my_profile_bg.xml" value="0.258" />
+        <entry key="..\:/Android Project/app/src/main/res/layout/activity_main.xml" value="0.11197916666666667" />
         <entry key="..\:/Android Project/app/src/main/res/layout/activity_splash_screen.xml" value="0.2526041666666667" />
         <entry key="..\:/Android Project/app/src/main/res/layout/fragment_add.xml" value="0.2526041666666667" />
         <entry key="..\:/Android Project/app/src/main/res/layout/fragment_event_detail.xml" value="0.264" />
         <entry key="..\:/Android Project/app/src/main/res/layout/fragment_home.xml" value="0.2526041666666667" />
+        <entry key="..\:/Android Project/app/src/main/res/layout/fragment_login.xml" value="0.1375" />
         <entry key="..\:/Android Project/app/src/main/res/layout/item_event_layout.xml" value="0.2526041666666667" />
         <entry key="..\:/Android Project/app/src/main/res/layout/item_news_layout.xml" value="0.9694767441860465" />
         <entry key="..\:/Android Project/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1325" />
         <entry key="..\:/Android Project/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1" />
->>>>>>> 33f552d (Test Commit)
         <entry key="..\:/Android Projects/Eventer/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.123" />
         <entry key="..\:/Android Projects/Eventer/app/src/main/res/drawable/bottom_navigation_menu.xml" value="0.258" />
         <entry key="..\:/Android Projects/Eventer/app/src/main/res/drawable/bottom_shape_navigation.xml" value="0.123" />

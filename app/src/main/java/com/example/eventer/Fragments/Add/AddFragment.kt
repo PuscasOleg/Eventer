@@ -8,9 +8,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.appcompat.widget.AppCompatButton
 import androidx.fragment.app.FragmentManager
 import com.example.eventer.Fragments.Auth.LoginFragment
 import com.example.eventer.R
@@ -18,6 +20,9 @@ import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import kotlinx.android.synthetic.main.fragment_add.*
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -25,12 +30,16 @@ import java.util.*
 class AddFragment : Fragment() {
 
 
-    private lateinit var themeView: TextInputLayout
-    private lateinit var descriptionView: TextInputLayout
-    private lateinit var dateView: TextInputLayout
+    private lateinit var themeView: TextInputEditText
+    private lateinit var descriptionView: TextInputEditText
+    private lateinit var phoneNumberView: TextInputEditText
+    private lateinit var locationView: TextInputEditText
+    private lateinit var addEvent: Button
+
     private lateinit var dateEditText: TextInputEditText
-    private lateinit var phoneNumberView: TextInputLayout
     private val user = FirebaseAuth.getInstance().currentUser
+
+    private lateinit var database: DatabaseReference
 
 
     override fun onCreateView(
@@ -47,8 +56,23 @@ class AddFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        dateView = view.findViewById(R.id.date)
+
+
+        themeView = view.findViewById(R.id.theEditText)
         dateEditText = view.findViewById(R.id.dateEdit)
+        descriptionView = view.findViewById(R.id.descriptionEditText)
+        phoneNumberView = view.findViewById(R.id.phone_numberEditText)
+        locationView = view.findViewById(R.id.locationEdit)
+
+        addEvent = view.findViewById(R.id.addEventBtn)
+        addEvent.setOnClickListener {
+            addEvent()
+        }
+
+
+
+
+
 
 
 
@@ -84,6 +108,37 @@ class AddFragment : Fragment() {
     }
 
 
+    private fun addEvent() {
+        val themeViewString: String = themeView.text.toString()
+
+        val dateEditTextString: String = dateEditText.text.toString()
+        val descriptionViewString: String = descriptionView.text.toString()
+        val phoneNumberViewString: String = phoneNumberView.text.toString()
+
+        val locationViewString: String = locationView.text.toString()
+
+        database = FirebaseDatabase.getInstance().getReference("Events")
+
+        val event = RegisterEvent(
+            themeViewString,
+            descriptionViewString,
+            locationViewString,
+            dateEditTextString,
+            phoneNumberViewString
+        )
+        database.child(themeViewString).setValue(event).addOnSuccessListener {
+
+            themeView.text?.clear()
+            dateEditText.text?.clear()
+            descriptionView.text?.clear()
+            phoneNumberView.text?.clear()
+            locationView.text?.clear()
+            Toast.makeText(activity, "Successful", Toast.LENGTH_LONG).show()
+        }.addOnFailureListener {
+            Toast.makeText(activity, "Failure", Toast.LENGTH_LONG).show()
+        }
+    }
+
 
     private fun TextInputEditText.datePicker(fm: FragmentManager, tag: String) {
 
@@ -111,19 +166,19 @@ class AddFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
-        checkUser()
+        // checkUser()
     }
 
 
-    private fun checkUser() {
-        if (user == null) {
-            Toast.makeText(activity, "Only logged users can add events", Toast.LENGTH_LONG).show()
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.fragmentContainer, LoginFragment())
-                .addToBackStack(null)
-                .commit()
-        }
-    }
+    /*   private fun checkUser() {
+           if (user == null) {
+               Toast.makeText(activity, "Only logged users can add events", Toast.LENGTH_LONG).show()
+               parentFragmentManager.beginTransaction()
+                   .replace(R.id.fragmentContainer, LoginFragment())
+                   .addToBackStack(null)
+                   .commit()
+           }
+       }*/
 
 
 }

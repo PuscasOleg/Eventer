@@ -10,11 +10,13 @@ import com.example.eventer.Fragments.Auth.RegisterFragment
 import com.example.eventer.Fragments.Home.HomeFragment
 import com.example.eventer.Fragments.Profile.AccountFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import leakcanary.LeakCanary
+import com.google.firebase.auth.FirebaseAuth
 
 
 class MainActivity : AppCompatActivity() {
 
+
+    private val user = FirebaseAuth.getInstance().currentUser
 
     private val accountFragment = AccountFragment()
     private val addFragment = AddFragment()
@@ -31,10 +33,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
-        /* if(savedInstanceState==null){
-             supportFragmentManager.beginTransaction()
-                 .add(R.id.fragmentContainer,registerFragment)
-         }*/
+
 
 
 
@@ -48,9 +47,16 @@ class MainActivity : AppCompatActivity() {
 
        bottomNavigation.setOnItemSelectedListener {
            when(it.itemId){
-               R.id.homeBtn->{replaceFragment(homeFragment)}
-               R.id.addBtn->{replaceFragment(addFragment)}
-               R.id.accountBtn->{replaceFragment(accountFragment)}
+               R.id.homeBtn->{replaceFragment(homeFragment) }
+               R.id.addBtn-> {
+                   if (user == null) {
+                       replaceFragment(loginFragment)
+                   }else{
+                       replaceFragment(addFragment)
+                   }
+               }
+               R.id.accountBtn->{
+                   replaceFragment(accountFragment) }
            }
            true
        }
@@ -61,17 +67,12 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun replaceFragment(fragment: Fragment) {
-        supportFragmentManager.beginTransaction().addToBackStack(null)
+        supportFragmentManager.beginTransaction()
             .replace(R.id.fragmentContainer, fragment)
             .commit()
     }
 
 
-    override fun onDestroy() {
-        super.onDestroy()
-
-
-    }
 }
 
 

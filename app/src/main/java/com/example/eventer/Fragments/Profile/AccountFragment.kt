@@ -10,9 +10,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import com.bumptech.glide.Glide
-import com.example.eventer.Fragments.Home.HomeFragment
 import com.example.eventer.R
 import com.example.eventer.Fragments.Auth.RegisterUser
+import com.example.eventer.MainActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.google.firebase.storage.FirebaseStorage
@@ -25,8 +25,8 @@ class AccountFragment : Fragment() {
     //Views
     lateinit var userNameView: TextView
     lateinit var emailView: TextView
-    lateinit var logOutBtn: TextView
-    lateinit var verification: TextView
+    private lateinit var logOutBtn: TextView
+    private lateinit var verification: TextView
     lateinit var profileImage: CircleImageView
 
     //Firebase
@@ -77,7 +77,7 @@ class AccountFragment : Fragment() {
         logOutBtn.setOnClickListener {
 
             FirebaseAuth.getInstance().signOut()
-            replaceFragment(HomeFragment())
+            gotoMainActivity()
 
         }
 
@@ -97,7 +97,8 @@ class AccountFragment : Fragment() {
                     Glide.with(activity!!).load(registerUserProfile.ProfileImage).into(profileImage)
 
 
-                }
+
+            }
 
                 override fun onCancelled(error: DatabaseError) {
 
@@ -142,9 +143,8 @@ class AccountFragment : Fragment() {
     }
 
 
-    private fun replaceFragment(fragment: Fragment) {
-        parentFragmentManager.beginTransaction().addToBackStack(null)
-            .replace(R.id.fragmentContainer, HomeFragment()).commit()
+    private fun gotoMainActivity() {
+       startActivity(Intent(this.context,MainActivity::class.java))
 
 
     }
