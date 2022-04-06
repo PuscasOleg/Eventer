@@ -11,7 +11,6 @@ import com.example.eventer.Fragments.Add.RegisterEvent
 import com.example.eventer.R
 import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.firebase.database.FirebaseDatabase
-import kotlinx.coroutines.awaitAll
 
 
 class HomeFragment : Fragment() {
@@ -45,7 +44,7 @@ class HomeFragment : Fragment() {
                 .build()
 
         adapter = EventAdapter(options)
-        resView.adapter=adapter
+        resView.adapter = adapter
 
     }
 
@@ -59,42 +58,6 @@ class HomeFragment : Fragment() {
         super.onStop()
         adapter.stopListening()
     }
-
-    /*private fun initial() {
-
-
-
-        recyclerView=resView
-        adapter= EventAdapter()
-
-        recyclerView.adapter=adapter
-        adapter.setList(event().asReversed())
-
-    }
-
-
-    private fun event():ArrayList<RegisterEvent>{
-
-        val eventList=ArrayList<RegisterEvent>()
-
-        var event1=RegisterEvent(" Endava Internship","12.03.2022","+37378373234")
-        eventList.add(event1)
-        var event2=RegisterEvent(" Pentalog Internship","23.03.2022","+37368324242")
-        eventList.add(event2)
-        var event3=RegisterEvent(" Amdaris Internship","12.03.2022","+37369873223")
-        eventList.add(event3)
-        var event4=RegisterEvent(" Unifan Internship","12.03.2022","+37369873223")
-        eventList.add(event4)
-        var event5=RegisterEvent("Tennis Tournament","30.03.2022","+37368860464")
-        eventList.add(event5)
-        var event6=RegisterEvent(" Concert","09.03.2022","+37368860464")
-        eventList.add(event6)
-        var event7=RegisterEvent(" Concert Rammstein","023.04.2022","+37368860464")
-        eventList.add(event7)
-
-        return eventList
-
-    }*/
 
 
 }

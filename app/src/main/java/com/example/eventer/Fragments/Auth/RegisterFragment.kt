@@ -23,7 +23,6 @@ class RegisterFragment : Fragment() {
     private lateinit var singUpBtn: Button
     private val auth: FirebaseAuth = FirebaseAuth.getInstance()
 
-    private lateinit var  mAuthStateListener:FirebaseAuth.AuthStateListener
 
 
     override fun onCreateView(

@@ -94,11 +94,11 @@ class AccountFragment : Fragment() {
 
                     userNameView.text = registerUserProfile.userName
                     emailView.text = registerUserProfile.email
-                    Glide.with(activity!!).load(registerUserProfile.ProfileImage).into(profileImage)
+                    Glide.with(activity!!).load(registerUserProfile.ProfileImage)
+                        .into(profileImage)
 
 
-
-            }
+                }
 
                 override fun onCancelled(error: DatabaseError) {
 
@@ -144,7 +144,7 @@ class AccountFragment : Fragment() {
 
 
     private fun gotoMainActivity() {
-       startActivity(Intent(this.context,MainActivity::class.java))
+        startActivity(Intent(this.context, MainActivity::class.java))
 
 
     }

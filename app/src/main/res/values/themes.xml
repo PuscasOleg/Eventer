@@ -29,6 +29,14 @@
     </style>
 
 
+    <style name="circleImageView" parent="">
+        <item name="cornerSizeTopRight">20%</item>
+        <item name="cornerSizeTopLeft">20%</item>
+        <item name="strokeColor">@color/orange</item>
+
+    </style>
+
+
 
 
 </resources>

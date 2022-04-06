@@ -11,17 +11,17 @@ import com.example.eventer.R
 
 class SplashScreenActivity : AppCompatActivity() {
 
-    private lateinit var   splash: Handler
+    private lateinit var splash: Handler
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
 
 
-        splash= Handler()
+        splash = Handler()
         splash.postDelayed({
-            val intent= Intent(this, MainActivity::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
-        },2000)
+        }, 2000)
     }
 }

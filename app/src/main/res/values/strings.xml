@@ -38,7 +38,7 @@
     <string name="emailVerified">Verified</string>
 
     <!-- Add Form Items -->
-
+    <string name="author">author</string>
     <string name="Theme">Theme</string>
     <string name="Description">Description</string>
     <string name="Date">Date</string>

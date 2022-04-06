@@ -18,7 +18,7 @@ class ResetPasswordFragment : Fragment() {
     private lateinit var resetBtn: Button
     private lateinit var backBtn: TextView
 
-    private val auth:FirebaseAuth = FirebaseAuth.getInstance()
+    private val auth: FirebaseAuth = FirebaseAuth.getInstance()
 
 
     override fun onCreateView(
@@ -56,23 +56,22 @@ class ResetPasswordFragment : Fragment() {
             resetEmailPassword.requestFocus()
             return
         }
-            auth.sendPasswordResetEmail(ResetPassword).addOnCompleteListener {
-                if (it.isSuccessful) {
-                    AlertDialog.Builder(activity).setCancelable(true).setMessage("Successful")
-                        .create().show()
+        auth.sendPasswordResetEmail(ResetPassword).addOnCompleteListener {
+            if (it.isSuccessful) {
+                AlertDialog.Builder(activity).setCancelable(true).setMessage("Successful")
+                    .create().show()
 
-                } else {
-                    AlertDialog.Builder(activity).setCancelable(true).setMessage("Fail")
-                        .create().show()
+            } else {
+                AlertDialog.Builder(activity).setCancelable(true).setMessage("Fail")
+                    .create().show()
 
-                }
             }
-
+        }
 
 
     }
 
-    private fun  back(){
+    private fun back() {
         parentFragmentManager.beginTransaction()
             .replace(R.id.fragmentContainer, LoginFragment())
             .addToBackStack(null).commit()

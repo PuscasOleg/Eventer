@@ -11,8 +11,6 @@ import com.example.eventer.R
 class EditProfileFragment : Fragment() {
 
 
-
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

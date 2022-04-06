@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/grey"
     android:orientation="vertical"
-    tools:context=".Fragments.Add.AddFragment">
+    tools:context=".Fragments.Add.AddEventFragment">
 
 
     <com.google.android.material.textfield.TextInputLayout

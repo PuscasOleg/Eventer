@@ -1,33 +1,26 @@
 package com.example.eventer.Fragments.Add
 
-import android.app.DatePickerDialog
+
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.EditText
 import android.widget.Toast
 import androidx.annotation.RequiresApi
-import androidx.appcompat.widget.AppCompatButton
 import androidx.fragment.app.FragmentManager
-import com.example.eventer.Fragments.Auth.LoginFragment
 import com.example.eventer.R
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.textfield.TextInputEditText
-import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import kotlinx.android.synthetic.main.fragment_add.*
-import java.text.SimpleDateFormat
-import java.util.*
+import com.google.firebase.ktx.Firebase
 
-
-class AddFragment : Fragment() {
+class AddEventFragment : Fragment() {
 
 
     private lateinit var themeView: TextInputEditText
@@ -35,10 +28,12 @@ class AddFragment : Fragment() {
     private lateinit var phoneNumberView: TextInputEditText
     private lateinit var locationView: TextInputEditText
     private lateinit var addEvent: Button
-
     private lateinit var dateEditText: TextInputEditText
-    private val user = FirebaseAuth.getInstance().currentUser
 
+
+
+    private val user = FirebaseAuth.getInstance().currentUser
+    private val userId = Firebase.auth.uid
     private lateinit var database: DatabaseReference
 
 
@@ -74,35 +69,10 @@ class AddFragment : Fragment() {
 
 
 
-
-
         dateEditText.datePicker(requireActivity().supportFragmentManager, "tag")
 
 
-        /*dateEditText.setOnClickListener {
-            View.OnClickListener {
-                val getDate = Calendar.getInstance()
-                val datePicker = DatePickerDialog(
-                    requireContext(),
-                    android.R.style.Theme_Holo_Light_Dialog_MinWidth,
-                    DatePickerDialog.OnDateSetListener { datePicker, day, month, year ->
 
-
-                        val selectDate = Calendar.getInstance()
-                        selectDate.set(Calendar.DAY_OF_MONTH, day)
-                        selectDate.set(Calendar.MONTH, month)
-                        selectDate.set(Calendar.YEAR, year)
-
-                        val date = dateFormat.format(selectDate.time)
-
-                        dateView.editText?.setText(date)
-                    },
-                    getDate.get(Calendar.YEAR),
-                    getDate.get(Calendar.MONTH),
-                    getDate.get(Calendar.DAY_OF_MONTH)
-                )
-                datePicker.show()
-            }*/
 
 
     }
@@ -110,16 +80,16 @@ class AddFragment : Fragment() {
 
     private fun addEvent() {
         val themeViewString: String = themeView.text.toString()
-
         val dateEditTextString: String = dateEditText.text.toString()
         val descriptionViewString: String = descriptionView.text.toString()
         val phoneNumberViewString: String = phoneNumberView.text.toString()
-
         val locationViewString: String = locationView.text.toString()
 
         database = FirebaseDatabase.getInstance().getReference("Events")
 
         val event = RegisterEvent(
+            user!!.email,
+            userId,
             themeViewString,
             descriptionViewString,
             locationViewString,
@@ -164,7 +134,7 @@ class AddFragment : Fragment() {
     }
 
 
-    override fun onStart() {
+   override fun onStart() {
         super.onStart()
         // checkUser()
     }

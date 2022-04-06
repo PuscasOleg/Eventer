@@ -4,7 +4,7 @@ package com.example.eventer
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import com.example.eventer.Fragments.Add.AddFragment
+import com.example.eventer.Fragments.Add.AddEventFragment
 import com.example.eventer.Fragments.Auth.LoginFragment
 import com.example.eventer.Fragments.Auth.RegisterFragment
 import com.example.eventer.Fragments.Home.HomeFragment
@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
     private val user = FirebaseAuth.getInstance().currentUser
 
     private val accountFragment = AccountFragment()
-    private val addFragment = AddFragment()
+    private val addFragment = AddEventFragment()
     private val homeFragment = HomeFragment()
     private val registerFragment = RegisterFragment()
     private val loginFragment = LoginFragment()
@@ -45,22 +45,24 @@ class MainActivity : AppCompatActivity() {
 
         replaceFragment(homeFragment)
 
-       bottomNavigation.setOnItemSelectedListener {
-           when(it.itemId){
-               R.id.homeBtn->{replaceFragment(homeFragment) }
-               R.id.addBtn-> {
-                   if (user == null) {
-                       replaceFragment(loginFragment)
-                   }else{
-                       replaceFragment(addFragment)
-                   }
-               }
-               R.id.accountBtn->{
-                   replaceFragment(accountFragment) }
-           }
-           true
-       }
-
+        bottomNavigation.setOnItemSelectedListener {
+            when (it.itemId) {
+                R.id.homeBtn -> {
+                    replaceFragment(homeFragment)
+                }
+                R.id.addBtn -> {
+                    if (user == null) {
+                        replaceFragment(loginFragment)
+                    } else {
+                        replaceFragment(addFragment)
+                    }
+                }
+                R.id.accountBtn -> {
+                    replaceFragment(accountFragment)
+                }
+            }
+            true
+        }
 
 
     }

@@ -9,9 +9,9 @@ class RegisterUser {
 
 
 
-    constructor() {
+    constructor()
 
-    }
+
     constructor(userName: String?, email: String?) {
         this.userName = userName
         this.email = email
