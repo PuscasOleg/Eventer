@@ -17,7 +17,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/BottomNavigation"
             android:layout_width="match_parent"
@@ -31,7 +30,15 @@
             app:itemIconTint="@drawable/bottom_item_selector"
             app:labelVisibilityMode="unlabeled"
             app:menu="@menu/items_menu" />
+
     </FrameLayout>
+
+
+
+
+
+
+
 
 
 

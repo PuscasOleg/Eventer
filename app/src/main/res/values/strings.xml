@@ -3,6 +3,7 @@
     <string name="welcome">Welcome</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="search">Search</string>
 
 
     <!-- Bottom  menu items -->
@@ -13,8 +14,9 @@
     <string name="Settings">Settings</string>
 
     <!-- Register And Login items -->
-    <string name="Registration">Sign Up</string>
-    <string name="Login">Sign In</string>
+    <string name="Registration">Register</string>
+    <string name="create_new_account">Create New Account</string>
+    <string name="Login">Login</string>
     <string name="UserName">User Name</string>
     <string name="Password">Password</string>
     <string name="ConfirmPassword">Confirm Password</string>
@@ -25,6 +27,9 @@
     <string name="ResetPasswordTextView">Reset Password</string>
     <string name="ResetPassword">RESET</string>
     <string name="PhoneNumber">Phone Number</string>
+    <string name="back_to_login">Back to Login</string>
+    <string name="to_enter_your_account">to enter your account</string>
+    <string name="enter_the_email_and_we_ll_send_an_email_with_instructions_to_reset_your_password">Enter the email and we\'ll send an email with instructions to reset your password</string>
 
     <!-- Profile Items -->
     <string name="emailNotVerified">Account not verified</string>
@@ -36,6 +41,7 @@
     <string name="EditProfile">Edit Profile</string>
     <string name="DefaultProfileView">empty</string>
     <string name="emailVerified">Verified</string>
+    <string name="facebook">Facebook</string>
 
     <!-- Add Form Items -->
     <string name="author">author</string>
@@ -44,6 +50,9 @@
     <string name="Date">Date</string>
     <string name="Status">Status</string>
     <string name="Location">Location</string>
+
+
+
 
 
 </resources>

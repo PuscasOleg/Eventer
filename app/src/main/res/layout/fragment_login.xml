@@ -1,33 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/login_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/grey"
-    tools:context=".Fragments.Auth.LoginFragment"
-    android:orientation="vertical">
+    android:background="@color/white"
+    tools:context=".Fragments.Auth.LoginFragment">
 
-    <TextView
+    <RelativeLayout
+        android:id="@+id/resetLayout"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_marginTop="60dp"
-        android:fontFamily="sans-serif-condensed-medium"
         android:gravity="center"
-        android:text="@string/Login"
-        android:textColor="@color/white"
-        android:textSize="50sp" />
+        android:layout_height="200dp"
+        android:background="@drawable/reset_pass_top_layout">
 
+        <TextView
+            android:id="@+id/loginTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:fontFamily="@font/anton"
+            android:text="@string/Login"
+            android:textColor="@color/lightOrange"
+            android:textSize="40sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/loginTextView"
+            android:gravity="center"
+            android:text="@string/to_enter_your_account"
+            android:textColor="@color/white"/>
+
+    </RelativeLayout>
 
     <LinearLayout
-
+        android:id="@+id/loginViews"
         android:layout_width="350dp"
         android:layout_height="330dp"
-        android:layout_gravity="center"
+        android:layout_below="@+id/resetLayout"
+        android:layout_centerHorizontal="true"
         android:background="@drawable/bottom_shape_navigation"
-        android:orientation="vertical"
-        tools:ignore="UselessParent">
+        android:orientation="vertical">
 
 
         <EditText
@@ -40,8 +55,8 @@
             android:drawablePadding="5dp"
             android:hint="@string/Email"
             android:paddingStart="15dp"
-            android:textColor="@color/grey"
-            android:textColorHint="@color/grey" />
+            android:textColor="@color/dark_grey"
+            android:textColorHint="@color/dark_grey" />
 
         <EditText
             android:id="@+id/passwordSignUp"
@@ -54,8 +69,8 @@
             android:hint="@string/Password"
             android:inputType="textPassword"
             android:paddingStart="15dp"
-            android:textColor="@color/grey"
-            android:textColorHint="@color/grey" />
+            android:textColor="@color/dark_grey"
+            android:textColorHint="@color/dark_grey" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/LogInBtn"
@@ -74,7 +89,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="30dp"
             android:text="@string/ForgotPassword"
-            android:textColor="@color/grey"
+            android:textColor="@color/dark_grey"
             android:textSize="15sp"
             android:textStyle="bold" />
 
@@ -82,17 +97,17 @@
     </LinearLayout>
 
     <LinearLayout
+        android:layout_below="@+id/loginViews"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|center"
-        android:layout_marginBottom="160dp"
-        android:orientation="horizontal">
+        android:layout_centerHorizontal="true">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/DontHaveAccount"
-            android:textColor="@color/white" />
+            android:textColor="@color/dark_grey"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/signUpTextView"
@@ -101,10 +116,10 @@
             android:layout_marginStart="3dp"
             android:textSize="15sp"
             android:text="@string/Registration"
-            android:textColor="@color/orange"
+            android:textColor="@color/lightOrange"
             android:textStyle="bold" />
 
     </LinearLayout>
 
 
-</LinearLayout>
+</RelativeLayout>

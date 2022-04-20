@@ -8,15 +8,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.widget.AppCompatButton
 import com.example.eventer.R
 import com.google.firebase.auth.FirebaseAuth
 
 
 class ResetPasswordFragment : Fragment() {
     private lateinit var resetEmailPassword: EditText
-    private lateinit var resetBtn: Button
-    private lateinit var backBtn: TextView
+    private lateinit var resetBtn: AppCompatButton
+    private lateinit var backBtn: ImageView
 
     private val auth: FirebaseAuth = FirebaseAuth.getInstance()
 

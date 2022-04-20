@@ -1,30 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/grey"
+    android:background="@color/white"
     android:id="@+id/register_container"
     android:orientation="vertical"
     tools:context=".Fragments.Auth.RegisterFragment">
-
-    <TextView
+    <RelativeLayout
+        android:id="@+id/resetLayout"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_marginTop="60dp"
-        android:fontFamily="sans-serif-condensed-medium"
-        android:gravity="center"
-        android:text="@string/Registration"
-        android:textColor="@color/white"
-        android:textSize="50sp" />
+        android:layout_height="200dp"
+        android:background="@drawable/reset_pass_top_layout">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/anton"
+            android:gravity="center"
+            android:text="@string/create_new_account"
+            android:textColor="@color/lightOrange"
+            android:textSize="40sp" />
+
+    </RelativeLayout>
 
     <LinearLayout
-        android:layout_marginTop="20dp"
-        android:gravity="center"
+
+        android:id="@+id/registerViews"
         android:layout_width="350dp"
         android:layout_height="370dp"
+        android:layout_below="@id/resetLayout"
+        android:layout_centerInParent="true"
         android:layout_gravity="center"
         android:background="@drawable/bottom_shape_navigation"
+        android:gravity="center"
         android:orientation="vertical"
         tools:ignore="UselessParent">
 
@@ -39,8 +49,8 @@
             android:drawablePadding="5dp"
             android:hint="@string/UserName"
             android:paddingStart="15dp"
-            android:textColor="@color/grey"
-            android:textColorHint="@color/grey" />
+            android:textColor="@color/dark_grey"
+            android:textColorHint="@color/dark_grey" />
 
         <EditText
             android:id="@+id/password"
@@ -53,8 +63,8 @@
             android:hint="@string/Password"
             android:inputType="textPassword"
             android:paddingStart="15dp"
-            android:textColor="@color/grey"
-            android:textColorHint="@color/grey" />
+            android:textColor="@color/dark_grey"
+            android:textColorHint="@color/dark_grey" />
 
         <EditText
             android:id="@+id/confirmPassword"
@@ -67,8 +77,8 @@
             android:hint="@string/ConfirmPassword"
             android:inputType="textPassword"
             android:paddingStart="15dp"
-            android:textColor="@color/grey"
-            android:textColorHint="@color/grey" />
+            android:textColor="@color/dark_grey"
+            android:textColorHint="@color/dark_grey" />
 
         <EditText
             android:id="@+id/email"
@@ -80,8 +90,8 @@
             android:drawablePadding="5dp"
             android:hint="@string/Email"
             android:paddingStart="15dp"
-            android:textColor="@color/grey"
-            android:textColorHint="@color/grey" />
+            android:textColor="@color/dark_grey"
+            android:textColorHint="@color/dark_grey" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/signUpButton"
@@ -98,21 +108,20 @@
     </LinearLayout>
 
     <LinearLayout
+        android:layout_below="@+id/registerViews"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|center"
-        android:layout_marginBottom="170dp"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/AlreadyRegistered"
             android:textAlignment="center"
-            android:textColor="@color/white"/>
+            android:textColor="@color/dark_grey"/>
         <TextView
             android:id="@+id/sigInTextView"
-            android:textColor="@color/orange"
+            android:textColor="@color/lightOrange"
             android:text="@string/Login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -122,4 +131,4 @@
     </LinearLayout>
 
 
-</LinearLayout>
+</RelativeLayout>

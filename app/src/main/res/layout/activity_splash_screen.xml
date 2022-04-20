@@ -4,24 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/grey"
+    android:background="@color/dark_grey"
+    android:gravity="center"
     tools:context=".MainActivity"
     >
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
 
         <ImageView
-            android:id="@+id/imageLogo"
-            android:layout_width="900px"
-            android:layout_height="700px"
-            android:layout_centerInParent="true"
-            android:src="@drawable/eventerremovebg" />
-
-
-    </RelativeLayout>
+            android:id="@+id/imageView"
+            android:layout_width="500dp"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/artboard" />
 
 
 </LinearLayout>

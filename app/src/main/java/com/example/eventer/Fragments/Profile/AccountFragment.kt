@@ -7,8 +7,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.widget.AppCompatButton
 import com.bumptech.glide.Glide
 import com.example.eventer.R
 import com.example.eventer.Fragments.Auth.RegisterUser
@@ -25,7 +27,7 @@ class AccountFragment : Fragment() {
     //Views
     lateinit var userNameView: TextView
     lateinit var emailView: TextView
-    private lateinit var logOutBtn: TextView
+    private lateinit var logOutImageView: ImageView
     private lateinit var verification: TextView
     lateinit var profileImage: CircleImageView
 
@@ -56,9 +58,8 @@ class AccountFragment : Fragment() {
 
         userNameView = view.findViewById(R.id.showUserNameView)
         emailView = view.findViewById(R.id.showEmailView)
-        logOutBtn = view.findViewById(R.id.logOutTxtView)
         profileImage = view.findViewById(R.id.profileImageView)
-        verification = view.findViewById(R.id.emailVerificationView)
+        logOutImageView=view.findViewById(R.id.logOutImg)
 
 
 
@@ -74,7 +75,7 @@ class AccountFragment : Fragment() {
             startActivityForResult(intent, 33)
         }
 
-        logOutBtn.setOnClickListener {
+        logOutImageView.setOnClickListener {
 
             FirebaseAuth.getInstance().signOut()
             gotoMainActivity()

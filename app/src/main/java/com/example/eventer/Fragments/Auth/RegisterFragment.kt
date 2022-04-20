@@ -152,16 +152,6 @@ class RegisterFragment : Fragment() {
 
     }
 
-    /*override fun onStart() {
-        super.onStart()
-
-        auth.addAuthStateListener(mAuthStateListener)
-    }
-
-    override fun onStop() {
-        super.onStop()
-        auth.removeAuthStateListener { mAuthStateListener }
-    }*/
 
     private fun replaceFragment(fragment: Fragment) {
         parentFragmentManager.beginTransaction()

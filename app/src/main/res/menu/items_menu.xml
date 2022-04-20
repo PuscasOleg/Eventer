@@ -5,8 +5,8 @@
         android:icon="@drawable/ic_baseline_home"
         android:title="@string/Home" />
     <item
-        android:id="@+id/addBtn"
         android:icon="@drawable/ic_baseline_add_24"
+        android:id="@+id/addBtn"
         android:title="@string/Add" />
     <item
         android:id="@+id/accountBtn"

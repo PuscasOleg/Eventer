@@ -3,27 +3,57 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android Project/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1705" />
         <entry key="..\:/Android Project/app/src/main/res/drawable/bottom_item_selector.xml" value="0.123" />
         <entry key="..\:/Android Project/app/src/main/res/drawable/bottom_shape_navigation.xml" value="0.206" />
         <entry key="..\:/Android Project/app/src/main/res/drawable/button_bg.xml" value="0.206" />
+        <entry key="..\:/Android Project/app/src/main/res/drawable/edit_profile_btn.xml" value="0.258" />
         <entry key="..\:/Android Project/app/src/main/res/drawable/event_detail_bg.xml" value="0.206" />
         <entry key="..\:/Android Project/app/src/main/res/drawable/event_image_bg.xml" value="0.206" />
+        <entry key="..\:/Android Project/app/src/main/res/drawable/gradient_color.xml" value="0.1705" />
+        <entry key="..\:/Android Project/app/src/main/res/drawable/ic_account_circle.xml" value="0.245" />
+        <entry key="..\:/Android Project/app/src/main/res/drawable/ic_backspace.xml" value="0.258" />
+        <entry key="..\:/Android Project/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.1705" />
+        <entry key="..\:/Android Project/app/src/main/res/drawable/ic_baseline_add_blue.xml" value="0.1705" />
+        <entry key="..\:/Android Project/app/src/main/res/drawable/ic_baseline_edit.xml" value="0.1705" />
+        <entry key="..\:/Android Project/app/src/main/res/drawable/ic_baseline_email.xml" value="0.1705" />
+        <entry key="..\:/Android Project/app/src/main/res/drawable/ic_baseline_home.xml" value="0.1705" />
+        <entry key="..\:/Android Project/app/src/main/res/drawable/ic_baseline_home_blue.xml" value="0.1705" />
+        <entry key="..\:/Android Project/app/src/main/res/drawable/ic_baseline_notifications.xml" value="0.1705" />
+        <entry key="..\:/Android Project/app/src/main/res/drawable/ic_baseline_notifications_blue.xml" value="0.1705" />
+        <entry key="..\:/Android Project/app/src/main/res/drawable/ic_baseline_perm.xml" value="0.1705" />
+        <entry key="..\:/Android Project/app/src/main/res/drawable/ic_baseline_perm_blue.xml" value="0.1705" />
+        <entry key="..\:/Android Project/app/src/main/res/drawable/ic_baseline_person.xml" value="0.1705" />
+        <entry key="..\:/Android Project/app/src/main/res/drawable/ic_baseline_security.xml" value="0.245" />
+        <entry key="..\:/Android Project/app/src/main/res/drawable/ic_baseline_settings.xml" value="0.245" />
+        <entry key="..\:/Android Project/app/src/main/res/drawable/ic_baseline_settings__blue.xml" value="0.1705" />
+        <entry key="..\:/Android Project/app/src/main/res/drawable/ic_baseline_verified_user.xml" value="0.1705" />
+        <entry key="..\:/Android Project/app/src/main/res/drawable/ic_cloud.xml" value="0.258" />
+        <entry key="..\:/Android Project/app/src/main/res/drawable/ic_exit.xml" value="0.255" />
+        <entry key="..\:/Android Project/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1705" />
+        <entry key="..\:/Android Project/app/src/main/res/drawable/ic_phone.xml" value="0.1705" />
+        <entry key="..\:/Android Project/app/src/main/res/drawable/ic_search.xml" value="0.245" />
         <entry key="..\:/Android Project/app/src/main/res/drawable/input_bg.xml" value="0.258" />
         <entry key="..\:/Android Project/app/src/main/res/drawable/item_event_bg.xml" value="0.258" />
+        <entry key="..\:/Android Project/app/src/main/res/drawable/main_background.xml" value="0.1925" />
         <entry key="..\:/Android Project/app/src/main/res/drawable/my_profile_bg.xml" value="0.258" />
+        <entry key="..\:/Android Project/app/src/main/res/drawable/reset_pass_top_layout.xml" value="0.258" />
+        <entry key="..\:/Android Project/app/src/main/res/drawable/search_edite_text.xml" value="0.245" />
+        <entry key="..\:/Android Project/app/src/main/res/drawable/transparent_background.xml" value="0.258" />
         <entry key="..\:/Android Project/app/src/main/res/layout-v31/fragment_event_detail.xml" value="0.1" />
-        <entry key="..\:/Android Project/app/src/main/res/layout/activity_main.xml" value="0.11197916666666667" />
+        <entry key="..\:/Android Project/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Android Project/app/src/main/res/layout/activity_splash_screen.xml" value="0.2526041666666667" />
         <entry key="..\:/Android Project/app/src/main/res/layout/fragment_account.xml" value="0.2526041666666667" />
         <entry key="..\:/Android Project/app/src/main/res/layout/fragment_add.xml" value="0.1" />
         <entry key="..\:/Android Project/app/src/main/res/layout/fragment_edit_profile.xml" value="0.2526041666666667" />
-        <entry key="..\:/Android Project/app/src/main/res/layout/fragment_event_detail.xml" value="0.3166089965397924" />
-        <entry key="..\:/Android Project/app/src/main/res/layout/fragment_home.xml" value="0.2526041666666667" />
-        <entry key="..\:/Android Project/app/src/main/res/layout/fragment_login.xml" value="0.1375" />
-        <entry key="..\:/Android Project/app/src/main/res/layout/fragment_register.xml" value="0.21829710144927536" />
-        <entry key="..\:/Android Project/app/src/main/res/layout/fragment_reset_password.xml" value="0.21829710144927536" />
+        <entry key="..\:/Android Project/app/src/main/res/layout/fragment_event_detail.xml" value="0.28654970760233917" />
+        <entry key="..\:/Android Project/app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="..\:/Android Project/app/src/main/res/layout/fragment_login.xml" value="0.2" />
+        <entry key="..\:/Android Project/app/src/main/res/layout/fragment_register.xml" value="0.15555555555555556" />
+        <entry key="..\:/Android Project/app/src/main/res/layout/fragment_reset_password.xml" value="0.2" />
         <entry key="..\:/Android Project/app/src/main/res/layout/item_event_layout.xml" value="0.2526041666666667" />
         <entry key="..\:/Android Project/app/src/main/res/layout/item_news_layout.xml" value="0.9694767441860465" />
+        <entry key="..\:/Android Project/app/src/main/res/menu/items_menu.xml" value="0.16145833333333334" />
         <entry key="..\:/Android Project/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1325" />
         <entry key="..\:/Android Project/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1" />
         <entry key="..\:/Android Projects/Eventer/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.123" />

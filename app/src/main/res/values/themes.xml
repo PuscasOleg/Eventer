@@ -18,21 +18,21 @@
 
     <!-- TextInputLayout -->
     <style name="TextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-        <item name="boxStrokeColor">@color/orange</item>
+        <item name="boxStrokeColor">@color/lightOrange</item>
         <item name="boxStrokeWidth">2dp</item>
-        <item name="hintTextColor">@color/orange</item>
+        <item name="hintTextColor">@color/lightOrange</item>
 
     </style>
 
     <style name="AppTheme.Button" parent="Widget.AppCompat.Button.Colored">
-        <item name="colorButtonNormal">@color/orange</item>
+        <item name="colorButtonNormal">@color/lightOrange</item>
     </style>
 
 
     <style name="circleImageView" parent="">
         <item name="cornerSizeTopRight">20%</item>
         <item name="cornerSizeTopLeft">20%</item>
-        <item name="strokeColor">@color/orange</item>
+        <item name="strokeColor">@color/lightOrange</item>
 
     </style>
 
