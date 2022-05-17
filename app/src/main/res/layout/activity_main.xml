@@ -8,10 +8,6 @@
     tools:context=".MainActivity"
     android:orientation="horizontal"
     android:fitsSystemWindows="false">
-
-
-
-
     <FrameLayout
         android:id="@+id/fragmentContainer"
         android:layout_width="match_parent"
@@ -32,14 +28,5 @@
             app:menu="@menu/items_menu" />
 
     </FrameLayout>
-
-
-
-
-
-
-
-
-
 
 </LinearLayout>

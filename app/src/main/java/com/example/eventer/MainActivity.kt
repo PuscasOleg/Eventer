@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.eventer.Fragments.Add.AddEventFragment
 import com.example.eventer.Fragments.Auth.LoginFragment
-import com.example.eventer.Fragments.Auth.RegisterFragment
 import com.example.eventer.Fragments.Home.HomeFragment
 import com.example.eventer.Fragments.Profile.AccountFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -21,7 +20,6 @@ class MainActivity : AppCompatActivity() {
     private val accountFragment = AccountFragment()
     private val addFragment = AddEventFragment()
     private val homeFragment = HomeFragment()
-    private val registerFragment = RegisterFragment()
     private val loginFragment = LoginFragment()
 
     private lateinit var bottomNavigation: BottomNavigationView
@@ -31,10 +29,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
         bottomNavigation = findViewById(R.id.BottomNavigation)
-
-
 
         replaceFragment(homeFragment)
 
@@ -57,9 +52,7 @@ class MainActivity : AppCompatActivity() {
             true
         }
 
-
     }
-
 
     private fun replaceFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()

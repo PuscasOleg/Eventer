@@ -34,22 +34,25 @@
         <entry key="..\:/Android Project/app/src/main/res/drawable/ic_phone.xml" value="0.1705" />
         <entry key="..\:/Android Project/app/src/main/res/drawable/ic_search.xml" value="0.245" />
         <entry key="..\:/Android Project/app/src/main/res/drawable/input_bg.xml" value="0.258" />
+        <entry key="..\:/Android Project/app/src/main/res/drawable/item_border.xml" value="0.258" />
         <entry key="..\:/Android Project/app/src/main/res/drawable/item_event_bg.xml" value="0.258" />
         <entry key="..\:/Android Project/app/src/main/res/drawable/main_background.xml" value="0.1925" />
         <entry key="..\:/Android Project/app/src/main/res/drawable/my_profile_bg.xml" value="0.258" />
         <entry key="..\:/Android Project/app/src/main/res/drawable/reset_pass_top_layout.xml" value="0.258" />
+        <entry key="..\:/Android Project/app/src/main/res/drawable/search_edit_text.xml" value="0.2065" />
         <entry key="..\:/Android Project/app/src/main/res/drawable/search_edite_text.xml" value="0.245" />
+        <entry key="..\:/Android Project/app/src/main/res/drawable/shape_example_circle.xml" value="0.165" />
         <entry key="..\:/Android Project/app/src/main/res/drawable/transparent_background.xml" value="0.258" />
         <entry key="..\:/Android Project/app/src/main/res/layout-v31/fragment_event_detail.xml" value="0.1" />
         <entry key="..\:/Android Project/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Android Project/app/src/main/res/layout/activity_splash_screen.xml" value="0.2526041666666667" />
         <entry key="..\:/Android Project/app/src/main/res/layout/fragment_account.xml" value="0.2526041666666667" />
-        <entry key="..\:/Android Project/app/src/main/res/layout/fragment_add.xml" value="0.1" />
+        <entry key="..\:/Android Project/app/src/main/res/layout/fragment_add.xml" value="0.264" />
         <entry key="..\:/Android Project/app/src/main/res/layout/fragment_edit_profile.xml" value="0.2526041666666667" />
         <entry key="..\:/Android Project/app/src/main/res/layout/fragment_event_detail.xml" value="0.28654970760233917" />
-        <entry key="..\:/Android Project/app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="..\:/Android Project/app/src/main/res/layout/fragment_home.xml" value="0.1" />
         <entry key="..\:/Android Project/app/src/main/res/layout/fragment_login.xml" value="0.2" />
-        <entry key="..\:/Android Project/app/src/main/res/layout/fragment_register.xml" value="0.15555555555555556" />
+        <entry key="..\:/Android Project/app/src/main/res/layout/fragment_register.xml" value="0.264" />
         <entry key="..\:/Android Project/app/src/main/res/layout/fragment_reset_password.xml" value="0.2" />
         <entry key="..\:/Android Project/app/src/main/res/layout/item_event_layout.xml" value="0.2526041666666667" />
         <entry key="..\:/Android Project/app/src/main/res/layout/item_news_layout.xml" value="0.9694767441860465" />

@@ -9,6 +9,7 @@ import com.example.eventer.MainActivity
 import com.example.eventer.R
 
 
+@SuppressLint("CustomSplashScreen")
 class SplashScreenActivity : AppCompatActivity() {
 
     private lateinit var splash: Handler

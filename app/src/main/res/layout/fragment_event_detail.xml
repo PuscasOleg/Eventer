@@ -1,60 +1,143 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:background="@color/white"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/ghost_white">
 
     <LinearLayout
-        android:id="@+id/headerEvent"
+        android:id="@+id/headerTheme"
         android:layout_width="match_parent"
-        android:layout_height="130dp"
-        android:background="@color/dark_grey"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/bottom_shape_navigation"
+        android:elevation="7dp">
 
         <TextView
             android:id="@+id/detailTheme"
-            android:textStyle="bold"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:padding="10dp"
             android:text="@string/Theme"
-            android:textColor="@color/white"
-            android:textSize="20sp" />
-        <TextView
-            android:id="@+id/detailAuthor"
-            android:textColor="@color/white"
-            android:paddingEnd="10dp"
-            android:textSize="17sp"
-            android:layout_marginTop="5dp"
-            android:padding="4dp"
-            android:gravity="end"
-            android:text="@string/author"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
     </LinearLayout>
-
-    <View
-        android:id="@+id/viewLine"
-        android:layout_width="match_parent"
-        android:layout_height="4dp"
-        android:layout_below="@id/headerEvent"
-        android:background="@color/lightOrange" />
 
     <LinearLayout
-        android:layout_marginTop="5dp"
-        android:layout_below="@+id/viewLine"
+        android:id="@+id/dateHeader"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_below="@id/descEvent"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/bottom_shape_navigation"
+        android:elevation="7dp">
+
+        <TextView
+            android:id="@+id/date_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@string/Date"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/descEvent"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@id/headerTheme"
+        android:layout_margin="10dp"
+        android:background="@drawable/bottom_shape_navigation"
+        android:elevation="7dp">
+
         <TextView
             android:id="@+id/detailDescription"
-            android:textSize="17sp"
-            android:text="@string/Description"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="@string/Description"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/locationHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dateHeader"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/bottom_shape_navigation"
+        android:elevation="7dp">
+
+        <TextView
+            android:id="@+id/location_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@string/Location"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/headerPhone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/locationHeader"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/bottom_shape_navigation"
+        android:elevation="7dp">
+
+        <TextView
+            android:id="@+id/phone_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:text="@string/PhoneNumber"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/headerPhone"
+        android:layout_margin="10dp"
+        android:background="@drawable/bottom_shape_navigation"
+        android:elevation="7dp">
+
+        <TextView
+            android:id="@+id/detailAuthor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:padding="4dp"
+            android:text="@string/author"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
 
 </RelativeLayout>

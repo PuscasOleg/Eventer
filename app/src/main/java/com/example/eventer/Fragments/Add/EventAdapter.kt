@@ -11,10 +11,8 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.firebase.ui.database.FirebaseRecyclerOptions
 import kotlinx.android.synthetic.main.item_event_layout.view.*
 
-class EventAdapter(options: FirebaseRecyclerOptions<RegisterEvent>) :
-    FirebaseRecyclerAdapter<RegisterEvent, EventAdapter.EventViewHolder>(options) {
-
-
+class EventAdapter(options: FirebaseRecyclerOptions<EventClass>) :
+    FirebaseRecyclerAdapter<EventClass, EventAdapter.EventViewHolder>(options) {
 
 
     class EventViewHolder(view: View) : RecyclerView.ViewHolder(view)
@@ -26,16 +24,24 @@ class EventAdapter(options: FirebaseRecyclerOptions<RegisterEvent>) :
         return EventViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: EventViewHolder, position: Int, model: RegisterEvent) {
+    override fun onBindViewHolder(holder: EventViewHolder, position: Int, model: EventClass) {
 
 
         holder.itemView.setOnClickListener {
 
-
-            val activity=it.context as AppCompatActivity
-            activity.supportFragmentManager.beginTransaction().replace(R.id.fragmentContainer,EventDetailFragment(model.theme,model.description,model.userId,model.userEmail)).addToBackStack(null).commit()
-
-
+            val activity = it.context as AppCompatActivity
+            activity.supportFragmentManager.beginTransaction().replace(
+                R.id.fragmentContainer,
+                EventDetailFragment(
+                    model.theme,
+                    model.description,
+                    model.userId,
+                    model.userEmail,
+                    model.date,
+                    model.phone,
+                    model.location
+                )
+            ).addToBackStack(null).commit()
 
         }
         holder.itemView.theme_item.text = model.theme
@@ -44,6 +50,10 @@ class EventAdapter(options: FirebaseRecyclerOptions<RegisterEvent>) :
 
     }
 
+
+    override fun getItemCount(): Int {
+        return super.getItemCount()
+    }
 
 
 }

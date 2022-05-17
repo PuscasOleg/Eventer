@@ -5,7 +5,7 @@
     android:id="@+id/home_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/dark_grey"
+    android:background="@color/ghost_white"
     tools:context=".Fragments.Home.HomeFragment">
 
 
@@ -16,6 +16,7 @@
         android:orientation="horizontal">
 
         <SearchView
+            style="@style/SearchViewStyle"
             android:id="@+id/Search"
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -25,8 +26,7 @@
             android:drawableStart="@drawable/ic_search"
             android:drawablePadding="5dp"
             android:paddingStart="15dp"
-            android:textColor="@color/dark_grey"
-            android:textColorHint="@color/dark_grey" />
+            android:textColor="@color/white" />
 
     </LinearLayout>
 
@@ -38,5 +38,7 @@
         android:layout_below="@+id/searchLayout"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/item_event_layout" />
+
+
 
 </RelativeLayout>

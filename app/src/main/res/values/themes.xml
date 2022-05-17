@@ -17,17 +17,21 @@
     </style>
 
     <!-- TextInputLayout -->
-    <style name="TextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+    <style name="TextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
         <item name="boxStrokeColor">@color/lightOrange</item>
         <item name="boxStrokeWidth">2dp</item>
-        <item name="hintTextColor">@color/lightOrange</item>
 
     </style>
 
     <style name="AppTheme.Button" parent="Widget.AppCompat.Button.Colored">
-        <item name="colorButtonNormal">@color/lightOrange</item>
+        <item name="colorButtonNormal">@color/white</item>
+        <item name="cornerRadius">20dp</item>
+
     </style>
 
+    <style name="SearchViewStyle" parent="Widget.AppCompat.SearchView">
+       <item name="editTextColor">@color/white</item>
+    </style>
 
     <style name="circleImageView" parent="">
         <item name="cornerSizeTopRight">20%</item>

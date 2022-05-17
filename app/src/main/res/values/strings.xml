@@ -44,12 +44,16 @@
     <string name="facebook">Facebook</string>
 
     <!-- Add Form Items -->
-    <string name="author">author</string>
+    <string name="PhoneNumberSecond">Phone Number:</string>
+    <string name="author">Author</string>
     <string name="Theme">Theme</string>
     <string name="Description">Description</string>
     <string name="Date">Date</string>
+    <string name="DateSecond">Date:</string>
     <string name="Status">Status</string>
     <string name="Location">Location</string>
+    <string name="CreateYourEvent">CREATE YOUR EVENT</string>
+    <string name="createEvent">CREATE EVENT</string>
 
 
 

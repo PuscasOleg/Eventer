@@ -121,7 +121,7 @@ class RegisterFragment : Fragment() {
         auth.createUserWithEmailAndPassword(Email, Password).addOnCompleteListener { it ->
             if (it.isSuccessful) {
 
-                val user = RegisterUser(UserName, Email)
+                val user = UserClass(UserName, Email)
 
                 FirebaseDatabase.getInstance().getReference("Users")
                     .child(FirebaseAuth.getInstance().currentUser!!.uid).setValue(user)
@@ -152,6 +152,16 @@ class RegisterFragment : Fragment() {
 
     }
 
+    /*override fun onStart() {
+        super.onStart()
+
+        auth.addAuthStateListener(mAuthStateListener)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        auth.removeAuthStateListener { mAuthStateListener }
+    }*/
 
     private fun replaceFragment(fragment: Fragment) {
         parentFragmentManager.beginTransaction()

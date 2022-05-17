@@ -10,12 +10,13 @@
 
 
     <!-- New Colors -->
-    <color name="ghost_white">#F7F7FF</color>
+    <color name="ghost_white">#E5E7E9</color>
     <color name="WhiteBlue">#5291CB</color>
     <color name="dark_grey">#344955</color>
     <color name="lightOrange">#F9AA33</color>
     <color name="red">#E12121</color>
     <color name="green">#36E121</color>
     <color name="light_grey">#4A6572</color>
+    <color name="DarkBlue">#1F618D</color>
 
 </resources>

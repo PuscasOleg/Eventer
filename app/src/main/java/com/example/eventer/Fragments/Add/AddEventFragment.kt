@@ -58,14 +58,13 @@ class AddEventFragment : Fragment() {
         descriptionView = view.findViewById(R.id.descriptionEditText)
         phoneNumberView = view.findViewById(R.id.phone_numberEditText)
         locationView = view.findViewById(R.id.locationEdit)
-
         addEvent = view.findViewById(R.id.addEventBtn)
+
+
+
         addEvent.setOnClickListener {
             addEvent()
         }
-
-
-
 
 
 
@@ -87,7 +86,7 @@ class AddEventFragment : Fragment() {
 
         database = FirebaseDatabase.getInstance().getReference("Events")
 
-        val event = RegisterEvent(
+        val event = EventClass(
             user!!.email,
             userId,
             themeViewString,
@@ -97,7 +96,6 @@ class AddEventFragment : Fragment() {
             phoneNumberViewString
         )
         database.child(themeViewString).setValue(event).addOnSuccessListener {
-
             themeView.text?.clear()
             dateEditText.text?.clear()
             descriptionView.text?.clear()

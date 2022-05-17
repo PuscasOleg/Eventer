@@ -51,7 +51,6 @@ class LoginFragment : Fragment() {
 
         logInBtn.setOnClickListener { singInUser() }
 
-
     }
 
 

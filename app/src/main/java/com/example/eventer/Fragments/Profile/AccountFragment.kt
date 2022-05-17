@@ -1,5 +1,6 @@
 package com.example.eventer.Fragments.Profile
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -10,10 +11,9 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.widget.AppCompatButton
 import com.bumptech.glide.Glide
 import com.example.eventer.R
-import com.example.eventer.Fragments.Auth.RegisterUser
+import com.example.eventer.Fragments.Auth.UserClass
 import com.example.eventer.MainActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
@@ -28,14 +28,15 @@ class AccountFragment : Fragment() {
     lateinit var userNameView: TextView
     lateinit var emailView: TextView
     private lateinit var logOutImageView: ImageView
-    private lateinit var verification: TextView
     lateinit var profileImage: CircleImageView
 
     //Firebase
     private val user = FirebaseAuth.getInstance()
     private val userId = user.uid
-    private var storage: FirebaseStorage = FirebaseStorage.getInstance()
-    private var database: FirebaseDatabase = FirebaseDatabase.getInstance()
+
+    private var storage = FirebaseStorage.getInstance()
+    private var database = FirebaseDatabase.getInstance()
+    private lateinit var reference: StorageReference
 
 
     private var intent: Intent = Intent()
@@ -59,7 +60,7 @@ class AccountFragment : Fragment() {
         userNameView = view.findViewById(R.id.showUserNameView)
         emailView = view.findViewById(R.id.showEmailView)
         profileImage = view.findViewById(R.id.profileImageView)
-        logOutImageView=view.findViewById(R.id.logOutImg)
+        logOutImageView = view.findViewById(R.id.logOutImg)
 
 
 
@@ -70,6 +71,8 @@ class AccountFragment : Fragment() {
 
         profileImage.setOnClickListener {
 
+            val intent = Intent()
+            //выбираем тип файла "изображение"
             intent.action = Intent.ACTION_GET_CONTENT
             intent.type = "image/*"
             startActivityForResult(intent, 33)
@@ -82,34 +85,27 @@ class AccountFragment : Fragment() {
 
         }
 
-        val reference = FirebaseDatabase.getInstance().getReference("Users")
+
 
 
         if (userId != null) {
-            reference.child(userId).addListenerForSingleValueEvent(object : ValueEventListener {
-                override fun onDataChange(snapshot: DataSnapshot) {
+            database.reference.child("Users").child(userId)
+                    //немедленое чтение данных
+                .addListenerForSingleValueEvent(object : ValueEventListener {
+                    @SuppressLint("CheckResult")
+                    override fun onDataChange(snapshot: DataSnapshot) {
 
-                    val registerUserProfile: RegisterUser =
-                        snapshot.getValue(RegisterUser::class.java)!!
+                       val  userClass= snapshot.getValue(UserClass::class.java)!!
+                        userNameView.text=userClass.userName
+                        emailView.text=userClass.email
+                        Glide.with(context!!).load(userClass.ProfileImage).into(profileImage)
+                    }
 
+                    override fun onCancelled(error: DatabaseError) {
 
-                    userNameView.text = registerUserProfile.userName
-                    emailView.text = registerUserProfile.email
-                    Glide.with(activity!!).load(registerUserProfile.ProfileImage)
-                        .into(profileImage)
+                    }
 
-
-                }
-
-                override fun onCancelled(error: DatabaseError) {
-
-                    Toast.makeText(activity, "Failure", Toast.LENGTH_LONG).show()
-
-                }
-
-            })
-
-
+                })
         }
 
 
@@ -118,35 +114,32 @@ class AccountFragment : Fragment() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (data!!.data != null) {
+        if (data?.data != null) {
+            val uriProfile: Uri? = data.data
+            profileImage.setImageURI(uriProfile)
 
-            val profileUri: Uri = data.data!!
+            reference = storage.reference.child("profile_picture").child(userId!!)
 
-            profileImage.setImageURI(profileUri)
 
-            val referance: StorageReference =
-                storage.reference.child("profile_picture")
-                    .child(FirebaseAuth.getInstance().uid.toString())
+            if (uriProfile != null) {
+                reference.putFile(uriProfile).addOnSuccessListener {
+                    Toast.makeText(context, "Successful", Toast.LENGTH_LONG).show()
 
-            referance.putFile(profileUri).addOnSuccessListener {
-                Toast.makeText(activity, "Successful", Toast.LENGTH_LONG).show()
 
-                referance.downloadUrl.addOnSuccessListener {
-                    database.reference.child("Users")
-                        .child(FirebaseAuth.getInstance().uid.toString()).child("ProfileImage")
-                        .setValue(it.toString())
+                    reference.downloadUrl.addOnSuccessListener {
+                        database.reference.child("Users").child(userId).child("ProfileImage")
+                            .setValue(it.toString())
+                    }
                 }
             }
-
-
         }
-
     }
+
+
 
 
     private fun gotoMainActivity() {
         startActivity(Intent(this.context, MainActivity::class.java))
-
 
     }
 

@@ -1,7 +1,7 @@
 package com.example.eventer.Fragments.Add
 
 
-class RegisterEvent {
+class EventClass {
 
 
     var userEmail: String? = null

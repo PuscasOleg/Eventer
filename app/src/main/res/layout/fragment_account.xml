@@ -13,7 +13,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/resetLayout"
         android:layout_centerInParent="true"
-        android:layout_centerVertical="true"
         android:layout_marginTop="-23dp"
         android:background="@drawable/edit_profile_btn"
         android:text="@string/EditProfile"
@@ -42,12 +41,12 @@
 
 
         <LinearLayout
-            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/profileImageView"
-            android:orientation="vertical"
+            android:layout_marginTop="10dp"
             android:gravity="center"
+            android:orientation="vertical"
             android:paddingLeft="15dp"
             android:paddingRight="15dp">
 
