@@ -18,7 +18,6 @@ import com.google.firebase.auth.FirebaseAuth
 class LoginFragment : Fragment() {
 
 
-
     private lateinit var password: EditText
     private lateinit var email: EditText
     private lateinit var sigUpTextView: TextView
@@ -52,7 +51,6 @@ class LoginFragment : Fragment() {
         logInBtn.setOnClickListener { singInUser() }
 
     }
-
 
 
     private fun openSignUpFragment() {

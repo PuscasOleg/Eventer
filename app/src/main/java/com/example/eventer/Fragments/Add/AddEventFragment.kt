@@ -68,7 +68,7 @@ class AddEventFragment : Fragment() {
 
 
 
-        dateEditText.datePicker(requireActivity().supportFragmentManager, "tag")
+        dateEditText.datePicker(requireActivity().supportFragmentManager)
 
 
 
@@ -108,8 +108,7 @@ class AddEventFragment : Fragment() {
     }
 
 
-    private fun TextInputEditText.datePicker(fm: FragmentManager, tag: String) {
-
+    private fun TextInputEditText.datePicker(fm: FragmentManager) {
         isFocusableInTouchMode = false
         isClickable = true
         isFocusable = false
@@ -132,21 +131,6 @@ class AddEventFragment : Fragment() {
     }
 
 
-   override fun onStart() {
-        super.onStart()
-        // checkUser()
-    }
-
-
-    /*   private fun checkUser() {
-           if (user == null) {
-               Toast.makeText(activity, "Only logged users can add events", Toast.LENGTH_LONG).show()
-               parentFragmentManager.beginTransaction()
-                   .replace(R.id.fragmentContainer, LoginFragment())
-                   .addToBackStack(null)
-                   .commit()
-           }
-       }*/
 
 
 }

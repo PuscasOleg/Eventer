@@ -75,7 +75,7 @@ class ResetPasswordFragment : Fragment() {
 
     private fun back() {
         parentFragmentManager.beginTransaction()
-            .replace(R.id.fragmentContainer, LoginFragment())
+            .replace(R.id.fragmentContainer, LoginFragment()).addToBackStack(null)
             .addToBackStack(null).commit()
     }
 

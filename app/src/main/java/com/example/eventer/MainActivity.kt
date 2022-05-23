@@ -53,9 +53,18 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+    override fun onBackPressed() {
+        if (bottomNavigation.selectedItemId == R.id.homeBtn) {
+            super.onBackPressed()
+            finish()
+        } else {
+            bottomNavigation.selectedItemId = R.id.homeBtn
+        }
+
+    }
 
     private fun replaceFragment(fragment: Fragment) {
-        supportFragmentManager.beginTransaction()
+        supportFragmentManager.beginTransaction().addToBackStack(null)
             .replace(R.id.fragmentContainer, fragment)
             .commit()
     }

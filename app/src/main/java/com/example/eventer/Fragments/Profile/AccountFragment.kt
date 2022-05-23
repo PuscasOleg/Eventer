@@ -33,13 +33,10 @@ class AccountFragment : Fragment() {
     //Firebase
     private val user = FirebaseAuth.getInstance()
     private val userId = user.uid
-
     private var storage = FirebaseStorage.getInstance()
     private var database = FirebaseDatabase.getInstance()
     private lateinit var reference: StorageReference
 
-
-    private var intent: Intent = Intent()
 
 
     override fun onCreateView(
@@ -79,7 +76,6 @@ class AccountFragment : Fragment() {
         }
 
         logOutImageView.setOnClickListener {
-
             FirebaseAuth.getInstance().signOut()
             gotoMainActivity()
 
@@ -140,7 +136,6 @@ class AccountFragment : Fragment() {
 
     private fun gotoMainActivity() {
         startActivity(Intent(this.context, MainActivity::class.java))
-
     }
 
 

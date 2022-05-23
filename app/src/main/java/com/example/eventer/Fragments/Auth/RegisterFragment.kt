@@ -165,7 +165,7 @@ class RegisterFragment : Fragment() {
 
     private fun replaceFragment(fragment: Fragment) {
         parentFragmentManager.beginTransaction()
-            .replace(R.id.fragmentContainer, fragment)
+            .replace(R.id.fragmentContainer, fragment).addToBackStack(null)
             .commit()
     }
 
