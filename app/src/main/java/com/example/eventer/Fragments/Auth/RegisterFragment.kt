@@ -1,6 +1,7 @@
 package com.example.eventer.Fragments.Auth
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,20 +10,27 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.example.eventer.NavInterface
+import com.example.eventer.Presenter.authPresenter.AuthPresenterImp
 import com.example.eventer.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
+import kotlinx.android.synthetic.main.fragment_register.*
 
 
-class RegisterFragment : Fragment() {
+class RegisterFragment : Fragment(), NavInterface {
     private lateinit var signInTextView: TextView
+
     private lateinit var userName: EditText
     private lateinit var password: EditText
     private lateinit var confirmPassword: EditText
     private lateinit var email: EditText
     private lateinit var singUpBtn: Button
+
+
     private val auth: FirebaseAuth = FirebaseAuth.getInstance()
 
+    private val authPresenter = AuthPresenterImp()
 
 
     override fun onCreateView(
@@ -42,40 +50,35 @@ class RegisterFragment : Fragment() {
 
 
         signInTextView.setOnClickListener {
-            openSignInFragment()
+            replaceFragment(LoginFragment())
         }
 
 
         singUpBtn.setOnClickListener {
             createUser()
+            /*authPresenter.registration(
+                userName = userNameEditeText.text.toString(),
+                password = passwordEditText.text.toString(),
+                email = emailEditText.text.toString(),
+                confPassword = confirmPasswordEditeText.text.toString()
+            )*/
+
         }
 
 
     }
 
 
-    private fun openSignInFragment() {
-
-
-        parentFragmentManager.beginTransaction().addToBackStack(null)
-            .replace(R.id.fragmentContainer, LoginFragment()).commit()
-
-    }
-
-
-
-
     private fun createUser() {
 
-        userName = view?.findViewById(R.id.userName)!!
+        userName = view?.findViewById(R.id.userNameEditeText)!!
         val UserName: String = userName.text.toString().trim()
-        password = view?.findViewById(R.id.password)!!
+        password = view?.findViewById(R.id.passwordEditText)!!
         val Password: String = password.text.toString().trim()
-        confirmPassword = view?.findViewById(R.id.confirmPassword)!!
+        confirmPassword = view?.findViewById(R.id.confirmPasswordEditeText)!!
         val ConfirmPassword: String = confirmPassword.text.toString().trim()
-        email = view?.findViewById(R.id.email)!!
+        email = view?.findViewById(R.id.emailEditText)!!
         val Email = email.text.toString().trim()
-
 
 
 
@@ -129,7 +132,7 @@ class RegisterFragment : Fragment() {
                         if (it.isSuccessful) {
                             auth.currentUser
                             Toast.makeText(activity, "Created", Toast.LENGTH_LONG).show()
-                           replaceFragment(LoginFragment())
+                            replaceFragment(LoginFragment())
 
                         } else {
                             Toast.makeText(activity, "Failure", Toast.LENGTH_LONG).show()
@@ -142,32 +145,13 @@ class RegisterFragment : Fragment() {
             }
 
 
-
-
-
-
-
         }
-
-
     }
 
-    /*override fun onStart() {
-        super.onStart()
 
-        auth.addAuthStateListener(mAuthStateListener)
-    }
-
-    override fun onStop() {
-        super.onStop()
-        auth.removeAuthStateListener { mAuthStateListener }
-    }*/
-
-    private fun replaceFragment(fragment: Fragment) {
+    override fun replaceFragment(fragment: Fragment) {
         parentFragmentManager.beginTransaction()
-            .replace(R.id.fragmentContainer, fragment).addToBackStack(null)
+            .replace(R.id.fragmentContainer, fragment)
             .commit()
     }
-
-
 }

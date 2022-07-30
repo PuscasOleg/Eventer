@@ -33,10 +33,13 @@ class AccountFragment : Fragment() {
     //Firebase
     private val user = FirebaseAuth.getInstance()
     private val userId = user.uid
+
     private var storage = FirebaseStorage.getInstance()
     private var database = FirebaseDatabase.getInstance()
     private lateinit var reference: StorageReference
 
+
+    private var intent: Intent = Intent()
 
 
     override fun onCreateView(
@@ -61,11 +64,6 @@ class AccountFragment : Fragment() {
 
 
 
-
-
-
-
-
         profileImage.setOnClickListener {
 
             val intent = Intent()
@@ -76,33 +74,29 @@ class AccountFragment : Fragment() {
         }
 
         logOutImageView.setOnClickListener {
+
             FirebaseAuth.getInstance().signOut()
             gotoMainActivity()
 
         }
 
-
-
-
         if (userId != null) {
-            database.reference.child("Users").child(userId)
-                    //немедленое чтение данных
-                .addListenerForSingleValueEvent(object : ValueEventListener {
-                    @SuppressLint("CheckResult")
-                    override fun onDataChange(snapshot: DataSnapshot) {
+            database.reference.child("Users").child(userId).addValueEventListener(object :ValueEventListener{
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    val  userClass= snapshot.getValue(UserClass::class.java)!!
+                    userNameView.text=userClass.userName
+                    emailView.text=userClass.email
+                    Glide.with(context!!).load(userClass.ProfileImage).centerCrop().placeholder(R.drawable.kisspng).into(profileImage)
+                }
 
-                       val  userClass= snapshot.getValue(UserClass::class.java)!!
-                        userNameView.text=userClass.userName
-                        emailView.text=userClass.email
-                        Glide.with(context!!).load(userClass.ProfileImage).into(profileImage)
-                    }
+                override fun onCancelled(error: DatabaseError) {
+                    Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show()
+                }
 
-                    override fun onCancelled(error: DatabaseError) {
-
-                    }
-
-                })
+            })
         }
+
+
 
 
     }
@@ -116,26 +110,22 @@ class AccountFragment : Fragment() {
 
             reference = storage.reference.child("profile_picture").child(userId!!)
 
-
             if (uriProfile != null) {
                 reference.putFile(uriProfile).addOnSuccessListener {
-                    Toast.makeText(context, "Successful", Toast.LENGTH_LONG).show()
-
 
                     reference.downloadUrl.addOnSuccessListener {
                         database.reference.child("Users").child(userId).child("ProfileImage")
                             .setValue(it.toString())
                     }
+                    Toast.makeText(context, "Successful", Toast.LENGTH_LONG).show()
                 }
             }
         }
     }
 
 
-
-
     private fun gotoMainActivity() {
-        startActivity(Intent(this.context, MainActivity::class.java))
+        startActivity(Intent(context, MainActivity::class.java))
     }
 
 

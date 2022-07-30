@@ -20,7 +20,7 @@ class ResetPasswordFragment : Fragment() {
     private lateinit var resetBtn: AppCompatButton
     private lateinit var backBtn: ImageView
 
-    private val auth: FirebaseAuth = FirebaseAuth.getInstance()
+    private val auth: FirebaseAuth = FirebaseAuth.getInstance() //подключение к FireBaseAuth
 
 
     override fun onCreateView(
@@ -60,11 +60,11 @@ class ResetPasswordFragment : Fragment() {
         }
         auth.sendPasswordResetEmail(ResetPassword).addOnCompleteListener {
             if (it.isSuccessful) {
-                AlertDialog.Builder(activity).setCancelable(true).setMessage("Successful")
+                AlertDialog.Builder(activity).setCancelable(true).setMessage("Successful.Check your email ")
                     .create().show()
 
             } else {
-                AlertDialog.Builder(activity).setCancelable(true).setMessage("Fail")
+                AlertDialog.Builder(activity).setCancelable(true).setMessage("Something  went wrong,Please check your credentials ")
                     .create().show()
 
             }

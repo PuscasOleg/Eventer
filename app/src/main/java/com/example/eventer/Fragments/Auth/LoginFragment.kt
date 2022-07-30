@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import com.example.eventer.Fragments.Profile.AccountFragment
 import com.example.eventer.MainActivity
 import com.example.eventer.R
 import com.google.firebase.auth.FirebaseAuth
@@ -103,10 +104,8 @@ class LoginFragment : Fragment() {
     private fun logInUser(Email: String, Password: String) {
         auth.signInWithEmailAndPassword(Email, Password).addOnCompleteListener {
             if (it.isSuccessful) {
-                //connect to  GSON
                 auth.currentUser?.uid
                 Toast.makeText(activity, "Welcome", Toast.LENGTH_LONG).show()
-
                 gotoMainActivity()
             } else {
                 Toast.makeText(activity, "Failure", Toast.LENGTH_LONG).show()

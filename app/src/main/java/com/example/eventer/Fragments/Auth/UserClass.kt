@@ -1,17 +1,13 @@
 package com.example.eventer.Fragments.Auth
 
 
-class UserClass() {
-    var ProfileImage: String? = null
-    var userName: String? = null
-    var email: String? = null
+ data class UserClass(var userName: String?="", var email: String?="") {
 
+    var ProfileImage:String?=null
 
+    constructor(profileImage:String,userName: String, email: String) : this(userName,email) {
+        this.ProfileImage=profileImage
 
-    constructor(userName: String?, email: String?) : this() {
-        this.userName = userName
-        this.email = email
     }
-
 }
 

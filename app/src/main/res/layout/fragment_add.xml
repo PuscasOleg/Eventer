@@ -108,8 +108,8 @@
         android:layout_marginTop="6dp"
         android:layout_marginEnd="16dp"
         android:hint="@string/PhoneNumber"
+        app:prefixText="+(373)"
         android:textColorHint="@color/black"
-        app:prefixText="+373"
         app:prefixTextColor="@color/black">
 
         <com.google.android.material.textfield.TextInputEditText

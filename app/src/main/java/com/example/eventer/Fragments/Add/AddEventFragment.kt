@@ -81,7 +81,7 @@ class AddEventFragment : Fragment() {
         val themeViewString: String = themeView.text.toString()
         val dateEditTextString: String = dateEditText.text.toString()
         val descriptionViewString: String = descriptionView.text.toString()
-        val phoneNumberViewString: String = phoneNumberView.text.toString()
+        val phoneNumberViewString: String ="+(373) "+phoneNumberView.text.toString()
         val locationViewString: String = locationView.text.toString()
 
         database = FirebaseDatabase.getInstance().getReference("Events")
